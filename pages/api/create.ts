@@ -1,5 +1,4 @@
 import { NextApiHandler } from "next";
-import { nanoid } from "nanoid";
 import { prisma } from "../../lib/db";
 import { Input } from "../../lib/validations/createBookmark";
 
@@ -22,11 +21,8 @@ const handler: NextApiHandler<
     return res.status(401).send("Not Allowed");
   }
 
-  const slug = nanoid(4);
-
   await prisma.bookmark.create({
     data: {
-      slug,
       name: validation.data.name,
       url: validation.data.url,
       icon: validation.data.icon,

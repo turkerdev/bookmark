@@ -9,7 +9,6 @@ datasource db {
 
 model Bookmark {
   id   String @id @default(auto()) @map("_id") @db.ObjectId
-  slug String @unique
   name String
   url  String @unique
   icon String
